@@ -3,19 +3,12 @@ GettingAndCleaningData
 
 Peer Assessment Repository
 
+Codebook.md contains information about the data and their associated files.
 
-Run_analysis.R Script produces 2 files:
-- MergedData.txt
-- TidyData.txt
+run_analysis.R is the R Script to create the data files for this project.
 
+The starting data set can be found here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Original README File Information
-=========================================
-- 'README.txt'
-- 'features_info.txt': Shows information about the variables used on the feature vector.
-- 'features.txt': List of all features.
-- 'activity_labels.txt': Links the class labels with their activity name.
-- 'train/X_train.txt': Training set.
-- 'train/y_train.txt': Training labels.
-- 'test/X_test.txt': Test set.
-- 'test/y_test.txt': Test labels.
+Testing Script Validity:
+1 - Extract the contents of the zipped "UCI HAR Dataset" folder into the working directory for your R data.
+2 - Run the R Script run_analysis.R (https://github.com/darobertson/GettingAndCleaningData/blob/master/run_analysis.r) to create the Merged and Tidy data sets in your working directory.
