@@ -1,3 +1,7 @@
+setwd("~/UCI HAR Dataset")
+getwd()
+
+
 ##Read and identify the activity labels and measurements for test and train data sets
 
 activitylabels<-read.table("~/UCI HAR Dataset/activity_labels.txt", col.names=c("activityID", "activityName"))
@@ -25,25 +29,23 @@ alltest<-cbind(subjecttest,ytest,xtest)
 alltrain<-cbind(subjecttrain,ytrain,xtrain)
 combineddata<-rbind(alltest,alltrain)
 
-                     
-                     for (i in 1:6){
-                       combineddata$TestLabel[combineddata$TestLabel ==i] <- activitylabels[i,2]}
-                     
-                     write.table(combineddata,file="MergedData.txt",sep=" ",append=FALSE)
-                     
-                     
-                     ##Identify measurements on the mean and standard deviation
-                     
-                     meanMeasurements<-grep("mean()",measurements,fixed=TRUE)
-                     stdMeasurements<-grep("std()",measurements,fixed=TRUE)
-                     
-                     
-                     ## Extract the mean and standard deviation measurements
-                     
-                     measurementExtract<-c(-1,0,meanMeasurements,stdMeasurements)
-                     MeanStdData<-combineddata[,measurementExtract+2]
-                     
-                     
-                     ## Create new Tidy table with measurements that relate to mean and std
-                     
-                     write.table(MeanStdData,file="TidyData.txt",sep=" ",append=FALSE)
+combineddata2<-merge(activitylabels, combineddata, by.x="activityID", by.y="activityID", all=TRUE)
+
+write.table(combineddata2,file="MergedData.txt",sep=" ",append=FALSE)
+
+
+##Identify measurements on the mean and standard deviation
+
+meanMeasurements<-grep("mean()",measurements,fixed=TRUE)
+stdMeasurements<-grep("std()",measurements,fixed=TRUE)
+
+
+## Extract the mean and standard deviation measurements
+
+measurementExtract<-c(-1,0,meanMeasurements,stdMeasurements)
+MeanStdData<-combineddata2[,measurementExtract+2]
+
+
+## Create new Tidy table with measurements that relate to mean and std
+
+write.table(MeanStdData,file="TidyData.txt",sep=" ",append=FALSE)
