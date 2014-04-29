@@ -5,7 +5,7 @@ Peer Assessment Repository
 
 Codebook.md contains information about the data and their associated files.
 
-run_analysis.R is the R Script to create the data files for this project.
+run_analysis.R is the R Script to create the data files for this project. This script does not require the installation of any supplementary R packages.
 
 The starting data set can be found here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
